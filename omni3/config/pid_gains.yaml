@@ -1,0 +1,6 @@
+/my_robot:
+  gazebo_ros_control:
+    pid_gains:
+      joint_b1: {p: 0.0, i: 0.0, d: 0.0}
+      joint_b2: {p: 0.0, i: 0.0, d: 0.0}
+      joint_b3: {p: 0.0, i: 0.0, d: 0.0}

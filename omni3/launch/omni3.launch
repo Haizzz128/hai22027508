@@ -1,0 +1,27 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find omni3)/worlds/empty.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+  </include>
+
+  <param name="robot_description" textfile="$(find omni3)/urdf/gk1.urdf"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+        args="-urdf -model omni_car -param robot_description"/>
+  <!-- Tải cấu hình controller -->
+  <rosparam file="$(find omni3)/config/pid_gains.yaml" command="load" />
+  <rosparam file="$(find omni3)/config/controllers.yaml" command="load" ns="/my_robot"/>
+  <!-- Khởi động controller -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" 
+        respawn="false" output="screen" ns="/my_robot" 
+        args="joint_state_controller joint_b1_controller joint_b2_controller joint_b3_controller"
+        launch-prefix="bash -c 'sleep 5; $0 $@'" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" 
+        respawn="false" output="screen">
+    <remap from="/joint_states" to="/my_robot/joint_states"/>
+  </node>
+
+  <node name="keyboard_control" pkg="omni3" type="keyboard_control.py" output="screen" launch-prefix="bash -c 'sleep 10; $0 $@'"/>
+  <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
+</launch>

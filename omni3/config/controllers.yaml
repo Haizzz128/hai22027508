@@ -1,0 +1,16 @@
+/my_robot:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  joint_b1_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: joint_b1
+
+  joint_b2_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: joint_b2
+
+  joint_b3_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: joint_b3

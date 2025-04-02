@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>omni3</name>
+  <version>0.0.0</version>
+  <description>The omni3 package</description>
+  <maintainer email="hai@todo.todo">hai</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>gazebo_ros</depend>
+  <depend>controller_manager</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>teleop_twist_keyboard</depend>
+</package>

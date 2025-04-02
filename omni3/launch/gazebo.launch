@@ -1,0 +1,37 @@
+<launch>
+  <!-- Khởi động Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find omni3)/worlds/empty.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+  </include>
+
+  <!-- Tải mô hình robot -->
+  <param name="robot_description" textfile="$(find omni3)/urdf/gk1.urdf"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+        args="-urdf -model omni_car -param robot_description"/>
+
+  <!-- Tải thông số điều khiển -->
+  <rosparam file="$(find omni3)/config/controllers.yaml" command="load" ns="/my_robot"/>
+
+  <!-- Spawn controller với độ trễ -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" 
+        respawn="false" output="screen" ns="/my_robot" 
+        args="joint_state_controller 
+              joint_b1_velocity_controller 
+              joint_b2_velocity_controller 
+              joint_b3_velocity_controller"
+        launch-prefix="bash -c 'sleep 5; $0 $@'" />
+
+  <!-- Robot state publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" 
+        respawn="false" output="screen">
+    <remap from="/joint_states" to="/my_robot/joint_states"/>
+  </node>
+
+  <!-- Script điều khiển bằng bàn phím -->
+  <node name="keyboard_control" pkg="omni3" type="keyboard_control.py" output="screen"/>
+
+  <!-- Teleop twist keyboard -->
+  <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
+</launch>

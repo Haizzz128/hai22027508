@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="omni_car">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00012408 0.0042357 0.034438"
+        rpy="0 0 0" />
+      <mass
+        value="0.75074" />
+      <inertia
+        ixx="0.0012261"
+        ixy="9.6504E-08"
+        ixz="-2.7494E-08"
+        iyy="0.0012244"
+        iyz="-1.5483E-05"
+        izz="0.0010961" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="xoay">
+    <inertial>
+      <origin
+        xyz="-0.0070766 -0.1797 -0.013423"
+        rpy="0 0 0" />
+      <mass
+        value="0.099764" />
+      <inertia
+        ixx="0.00018874"
+        ixy="2.0009E-06"
+        ixz="-8.7009E-05"
+        iyy="0.00023659"
+        iyz="3.7953E-06"
+        izz="6.9571E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/xoay.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/xoay.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_xoay"
+    type="revolute">
+    <origin
+      xyz="-1.3412E-05 0.0041829 0.035383"
+      rpy="-1.5338 -0.11238 -1.8896" />
+    <parent
+      link="base_link" />
+    <child
+      link="xoay" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="keo">
+    <inertial>
+      <origin
+        xyz="0.099444 0.03334 0.099326"
+        rpy="0 0 0" />
+      <mass
+        value="0.066481" />
+      <inertia
+        ixx="1.6149E-05"
+        ixy="-4.2882E-07"
+        ixz="-3.6083E-06"
+        iyy="2.4493E-05"
+        iyz="-1.016E-06"
+        izz="1.6064E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/keo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/keo.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_keo"
+    type="prismatic">
+    <origin
+      xyz="-1.3412E-05 0.022532 0.18978"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="keo" />
+    <axis
+      xyz="-0.69533 -0.084814 -0.71367" />
+    <limit
+      lower="0"
+      upper="0.05"
+      effort="0"
+      velocity="0" />
+  </joint>
+    <!--lidar-->
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="0.00094299 0.0070654 -0.017959"
+        rpy="0 0 0" />
+      <mass
+        value="0.029933" />
+      <inertia
+        ixx="6.7548E-06"
+        ixy="-1.5749E-07"
+        ixz="5.2722E-08"
+        iyy="5.5959E-06"
+        iyz="3.9502E-07"
+        izz="7.6738E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_lidar"
+    type="fixed">
+    <origin
+      xyz="8.4182E-05 -0.061155 0.06769"
+      rpy="0.11672 -0.019253 -2.9789" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <gazebo reference="lidar">
+  <sensor name="lidar_sensor" type="ray">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10.0</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14159</min_angle>
+          <max_angle>3.14159</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.1</min>
+        <max>10.0</max>
+        <resolution>0.01</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </ray>
+    <plugin name="lidar_plugin" filename="libgazebo_ros_laser.so">
+      <robotNamespace>/my_robot</robotNamespace>
+      <topicName>lidar_data</topicName>
+      <frameName>lidar</frameName>
+      <updateRateHZ>10.0</updateRateHZ>
+    </plugin>
+  </sensor>
+  </gazebo>
+    <!--lidar-->
+    <!--imu-->
+  <link
+    name="imu">
+    <inertial>
+      <origin
+        xyz="0 0 -0.0025"
+        rpy="0 0 0" />
+      <mass
+        value="0.003" />
+      <inertia
+        ixx="1.0625E-07"
+        ixy="-1.5551E-22"
+        ixz="-1.9108E-22"
+        iyy="2.3125E-07"
+        iyz="-1.3069E-22"
+        izz="3.25E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/imu.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_imu"
+    type="fixed">
+    <origin
+      xyz="-0.058254 0.053715 0.0036868"
+      rpy="0.096571 0.068413 2.5271" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <gazebo reference="imu">
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+      <robotNamespace>/my_robot</robotNamespace>
+      <topicName>imu_data</topicName>
+      <bodyName>imu</bodyName>
+      <frameName>imu</frameName>
+      <updateRateHZ>50.0</updateRateHZ> <!-- Thêm tần suất publish -->
+      <gaussianNoise>0.01</gaussianNoise>
+      <xyzOffset>0 0 0</xyzOffset> <!-- Sửa từ xyzOffsets -->
+      <rpyOffset>0 0 0</rpyOffset> <!-- Sửa từ rpyOffsets -->
+    </plugin>
+  </sensor>
+  </gazebo>
+  <!--imu-->
+  <link
+    name="b1">
+    <inertial>
+      <origin
+        xyz="-0.0020673 0.014408 -0.079618"
+        rpy="0 0 0" />
+      <mass
+        value="0.21655" />
+      <inertia
+        ixx="4.5334E-05"
+        ixy="3.1131E-09"
+        ixz="-4.3134E-09"
+        iyy="4.6444E-05"
+        iyz="-6.2997E-06"
+        izz="8.1005E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/b1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/b1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_b1"
+    type="continuous">
+    <origin
+      xyz="0.036671 -0.059205 -0.011999"
+      rpy="2.2904 -1.4438 2.8337" />
+    <parent
+      link="base_link" />
+    <child
+      link="b1" />
+    <axis
+      xyz="0 0.17383 -0.98478" />
+  </joint>
+  <!--transmissionb1-->
+  <transmission name="tran_b1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_b1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_b1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="b3">
+    <inertial>
+      <origin
+        xyz="1.111E-06 0.011907 0.034839"
+        rpy="0 0 0" />
+      <mass
+        value="0.21655" />
+      <inertia
+        ixx="4.533E-05"
+        ixy="2.2404E-09"
+        ixz="1.237E-09"
+        iyy="4.9183E-05"
+        iyz="1.1258E-05"
+        izz="7.8269E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/b3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/b3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_b3"
+    type="continuous">
+    <origin
+      xyz="-0.11401 -0.0087406 -0.020008"
+      rpy="1.8935 0.027744 -1.5158" />
+    <parent
+      link="base_link" />
+    <child
+      link="b3" />
+    <axis
+      xyz="0 0.32332 0.94629" />
+  </joint>
+  <!--transmissionb3-->
+  <transmission name="tran_b3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_b3">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_b3">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link
+    name="b2">
+    <inertial>
+      <origin
+        xyz="3.1993E-06 0.0059415 0.017392"
+        rpy="0 0 0" />
+      <mass
+        value="0.21655" />
+      <inertia
+        ixx="4.5335E-05"
+        ixy="8.9364E-10"
+        ixz="5.4511E-09"
+        iyy="4.9175E-05"
+        iyz="1.1254E-05"
+        izz="7.8272E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/b2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://omni3/meshes/b2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_b2"
+    type="continuous">
+    <origin
+      xyz="0.059851 0.11501 -0.034716"
+      rpy="-1.5247 -1.1842 -0.20761" />
+    <parent
+      link="base_link" />
+    <child
+      link="b2" />
+    <axis
+      xyz="0 0.32332 0.94629" />
+  </joint>
+  <!--transmissionb2-->
+  <transmission name="tran_b2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_b2">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_b2">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+ <!-- Thêm plugin gazebo_ros_control -->
+  <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/my_robot</robotNamespace>
+  </plugin>
+  </gazebo>
+</robot>
